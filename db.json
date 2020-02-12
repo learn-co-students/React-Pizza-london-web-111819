@@ -8,8 +8,8 @@
     },
     {
       "id": 2,
-      "topping": "Pepperoni",
-      "size": "Small",
+      "topping": "Pepperoni & Ham",
+      "size": "Large",
       "vegetarian": false
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "id": 6,
-      "topping": "Spinach",
+      "topping": "Spinach & Cream",
       "size": "Medium",
       "vegetarian": true
     },

@@ -27,7 +27,15 @@ class App extends Component {
                 Accept: "application/json"
             },
             body: JSON.stringify(pizza)
-        }).then(response => response.json());
+        })
+            .then(response => response.json())
+            .then(data =>
+                this.setState({ pizzas: [...this.replacePizza(data), data] })
+            );
+    }
+
+    replacePizza(data) {
+        return this.state.pizzas.filter(pizza => pizza.id !== data.id);
     }
 
     componentDidMount() {
@@ -50,7 +58,6 @@ class App extends Component {
     };
 
     handleCheckChange = event => {
-      
         this.setState({
             pizzaToChange: {
                 ...this.state.pizzaToChange,
@@ -59,13 +66,13 @@ class App extends Component {
         });
     };
 
-    handleSubmit = (pizza) => {
+    handleSubmit = pizza => {
         this.patchPizza(pizza.id, pizza);
-        alert("Pizza updated")
+        alert("Pizza updated");
 
-        //TODO 
-        //+ reset the form 
-        //+ automatically render updated db 
+        //TODO
+        //+ reset the form
+        //+ automatically render updated db
     };
 
     render() {
